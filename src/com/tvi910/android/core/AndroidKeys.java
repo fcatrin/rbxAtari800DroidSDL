@@ -1,7 +1,7 @@
 package com.tvi910.android.core;
 
+import android.annotation.SuppressLint;
 import android.view.KeyEvent;
-
 import java.util.HashMap;
 import java.util.Map;
 
@@ -11,7 +11,8 @@ import java.util.Map;
  */
 public class AndroidKeys {
 
-    public static final int KEYMAP_SIZE = (KeyEvent.getMaxKeyCode() + 1);
+    @SuppressLint("NewApi")
+	public static final int KEYMAP_SIZE = (KeyEvent.getMaxKeyCode() + 1);
 
     private static HashMap<Integer, String> _codeMap;
     private static HashMap<String, Integer> _nameMap;
@@ -75,6 +76,22 @@ public class AndroidKeys {
         _codeMap.put(80, "FOCUS");
         _codeMap.put(82, "MENU");
         _codeMap.put(84, "SEARCH");
+        
+        // added for iPega
+        _codeMap.put(96, "BACKQUOTE");
+        _codeMap.put(97, "a");
+        _codeMap.put(98, "b");
+        _codeMap.put(99, "c");
+        _codeMap.put(100, "d");
+        _codeMap.put(101, "e");
+        _codeMap.put(102, "f");
+        _codeMap.put(103, "g");
+        _codeMap.put(104, "h");
+        _codeMap.put(105, "i");
+        _codeMap.put(106, "j");
+        _codeMap.put(107, "k");
+        _codeMap.put(108, "l");
+        _codeMap.put(109, "m");
 
         _nameMap = new HashMap<String, Integer>();
         for (Map.Entry<Integer, String> me : _codeMap.entrySet()) {

@@ -51,7 +51,7 @@ public final class Keymap {
      * Translate the android keycode to an SDL keycode
      */
     public int translate(int androidCode) {
-// Log.v("Keymap", "Translating keycode=" + androidCode + ", sdl code=" + _lookupTable[androidCode]);
+    Log.v("Keymap", "Translating keycode=" + androidCode + ", sdl code=" + _lookupTable[androidCode]);
 // living dangerously - expect no keycodes to be > KeyEvent.getMaxKeyCode()
         return _lookupTable[androidCode];
     }
@@ -61,6 +61,14 @@ public final class Keymap {
             _lookupTable[androidCode] = atariCode;
             _numberOfMappedKeys++;
         }
+    }
+    
+    public void setMap(String androidName, String atariName, ConsoleKeys consoleKeys) {
+    	Integer androidCode = AndroidKeys.getCode(androidName);
+    	Integer atariCode = consoleKeys.getCode(atariName);
+    	Log.d("Keymap", "androidCode " + androidCode);
+    	Log.d("Keymap", "atariCode " + atariCode);
+    	if (androidCode != null && atariCode!=null) setMap(androidCode, atariCode);
     }
 
     public int getNumberOfMappedKeys() {
@@ -75,17 +83,11 @@ public final class Keymap {
     public void reload(SharedPreferences prefs, ConsoleKeys consoleKeys) {
         this.reset();
         for (String atariString : consoleKeys.getNames()) {
+        	Log.d("Keymap", "Mapping atari key " + atariString);
             String androidString = prefs.getString(atariString, null);
+        	Log.d("Keymap", "androidString is " + androidString);
             if (null != androidString && androidString.length() > 0) {
-                try {
-                    int androidCode = AndroidKeys.getCode(androidString);
-                    int atariCode = consoleKeys.getCode(atariString);
-                    this.setMap(androidCode, atariCode);
-                }
-                catch (NullPointerException e) {
-                    // this means there was no code matching the given string.
-                    e.printStackTrace();
-                }
+            	setMap(androidString, atariString, consoleKeys);
             }
         }
     }

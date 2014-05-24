@@ -92,6 +92,9 @@ public class AndroidKeys {
         _codeMap.put(107, "k");
         _codeMap.put(108, "l");
         _codeMap.put(109, "m");
+        
+        _codeMap.put(110, "LOAD_STATE");
+        _codeMap.put(111, "SAVE_STATE");
 
         _nameMap = new HashMap<String, Integer>();
         for (Map.Entry<Integer, String> me : _codeMap.entrySet()) {

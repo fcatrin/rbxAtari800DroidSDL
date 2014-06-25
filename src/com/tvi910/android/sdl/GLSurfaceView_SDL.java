@@ -35,6 +35,7 @@ import javax.microedition.khronos.opengles.GL10;
 
 import android.content.Context;
 import android.util.AttributeSet;
+import android.util.Log;
 //import android.util.Log;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
@@ -937,8 +938,9 @@ public class GLSurfaceView_SDL extends SurfaceView implements SurfaceHolder.Call
                         r.run();
                     }
                     if (mPaused) {
-                        mEglHelper.finish();
-                        mNeedStart = true;
+                    	Log.d("PAUSE", "paused");
+                        //mEglHelper.finish();
+                        //mNeedStart = true;
                     }
                     while (needToWait()) {
                         wait();
@@ -953,20 +955,24 @@ public class GLSurfaceView_SDL extends SurfaceView implements SurfaceHolder.Call
                     mRequestRender = false;
                 }
                 if (mNeedStart) {
+                	Log.d("PAUSE", "mEglHelper.start");
                     mEglHelper.start();
                     tellRendererSurfaceCreated = true;
                     changed = true;
                     mNeedStart = false;
                 }
                 if (changed) {
+                	Log.d("PAUSE", "mEglHelper.createSurface");
                     mGL = (GL10) mEglHelper.createSurface(getHolder());
                     tellRendererSurfaceChanged = true;
                 }
                 if (tellRendererSurfaceCreated) {
+                	Log.d("PAUSE", "mRenderer.onSurfaceCreated");
                     mRenderer.onSurfaceCreated(mGL, mEglHelper.mEglConfig);
                     tellRendererSurfaceCreated = false;
                 }
                 if (tellRendererSurfaceChanged) {
+                	Log.d("PAUSE", "mRenderer.onSurfaceChanged " + w + ", " + h);
                     mRenderer.onSurfaceChanged(mGL, w, h);
                     tellRendererSurfaceChanged = false;
                 }

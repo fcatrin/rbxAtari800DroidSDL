@@ -27,6 +27,7 @@ public class VirtualControllerManager {
         VirtualController controller = _controllerMap.get(a);
         if (null != controller) {
             // deactivate all controls then activate this one
+        	
             for (VirtualController vc : _controllerMap.values()) {
                 vc.deactivate();         
             }

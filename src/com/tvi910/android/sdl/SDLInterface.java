@@ -84,5 +84,7 @@ public class SDLInterface {
      * Quit the SDL application. 
      */
     public static native void nativeQuit();
+    
+    public static native void setSaveSlot(int slot);
 
 }

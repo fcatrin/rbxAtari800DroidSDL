@@ -21,6 +21,8 @@
 #define JAVA_EXPORT_NAME1(name,package) JAVA_EXPORT_NAME2(name,package)
 #define JAVA_EXPORT_NAME(name) JAVA_EXPORT_NAME1(name,SDL_JAVA_PACKAGE_PATH)
 
+void main_set_screenshot_path(char *path);
+
 extern C_LINKAGE void
 JAVA_EXPORT_NAME(SDLInterface_nativeInit) ( JNIEnv*  env, jobject thiz, jobjectArray objArray )
 {
@@ -39,6 +41,15 @@ JAVA_EXPORT_NAME(SDLInterface_nativeInit) ( JNIEnv*  env, jobject thiz, jobjectA
     for(i = 0; i < length; i++) {
         (*env)->ReleaseStringUTFChars(env, stringArray[i], argv[i]);
     }
+};
+
+extern C_LINKAGE void
+JAVA_EXPORT_NAME(SDLInterface_nativeSetScreenshotPath) ( JNIEnv*  env, jobject thiz, jstring path )
+{
+    char *cstr = (char *)(*env)->GetStringUTFChars(env, path, NULL);
+    main_set_screenshot_path(cstr);
+    (*env)->ReleaseStringUTFChars(env, path, cstr);
+
 };
 
 #undef JAVA_EXPORT_NAME

@@ -73,6 +73,7 @@ public class SDLInterface {
      * Pass an array of command line arguments.
      */
     public static native void nativeInit(String args[]);
+    public static native void nativeSetScreenshotPath(String path);
 
 
     /**

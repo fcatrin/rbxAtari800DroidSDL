@@ -22,6 +22,7 @@
 #define JAVA_EXPORT_NAME(name) JAVA_EXPORT_NAME1(name,SDL_JAVA_PACKAGE_PATH)
 
 void main_set_screenshot_path(char *path);
+void main_mount_disk(int drive, char *path, int readonly);
 
 extern C_LINKAGE void
 JAVA_EXPORT_NAME(SDLInterface_nativeInit) ( JNIEnv*  env, jobject thiz, jobjectArray objArray )
@@ -48,6 +49,15 @@ JAVA_EXPORT_NAME(SDLInterface_nativeSetScreenshotPath) ( JNIEnv*  env, jobject t
 {
     char *cstr = (char *)(*env)->GetStringUTFChars(env, path, NULL);
     main_set_screenshot_path(cstr);
+    (*env)->ReleaseStringUTFChars(env, path, cstr);
+
+};
+
+extern C_LINKAGE void
+JAVA_EXPORT_NAME(SDLInterface_nativeMountDisk) ( JNIEnv*  env, jobject thiz, int drive, jstring path, int readonly )
+{
+    char *cstr = (char *)(*env)->GetStringUTFChars(env, path, NULL);
+    main_mount_disk(drive, cstr, readonly);
     (*env)->ReleaseStringUTFChars(env, path, cstr);
 
 };

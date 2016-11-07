@@ -74,6 +74,7 @@ public class SDLInterface {
      */
     public static native void nativeInit(String args[]);
     public static native void nativeSetScreenshotPath(String path);
+    public static native void nativeMountDisk(int drive, String path, int readonly);
 
 
     /**

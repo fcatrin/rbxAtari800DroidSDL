@@ -19,7 +19,7 @@ import android.util.Log;
 
 import java.util.List;
 
-class DemoRenderer extends GLSurfaceView_SDL.Renderer {
+public class DemoRenderer extends GLSurfaceView_SDL.Renderer {
 
     boolean firstCall = true;
 
@@ -110,6 +110,7 @@ class DemoRenderer extends GLSurfaceView_SDL.Renderer {
     private native void nativeInitJavaCallbacks();
     private native void nativeResize(int w, int h);
     private native void nativeDone();
+    public static native void nativeSetInvertRGB(boolean invert);
 
     private Activity context = null;
     private List<String> _sdlMainArgs;

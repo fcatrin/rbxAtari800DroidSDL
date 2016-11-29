@@ -30,6 +30,8 @@ extern int SDL_ANDROID_sWindowWidth;
 extern int SDL_ANDROID_sWindowHeight;
 extern int SDL_ANDROID_sFakeWindowWidth; // SDL 1.2 only
 extern int SDL_ANDROID_sFakeWindowHeight; // SDL 1.2 only
+extern int SDL_ANDROID_invert_rgb;
+
 extern int SDL_ANDROID_CallJavaSwapBuffers();
 // typedef struct SDL_VideoDevice SDL_VideoDevice;
 extern SDL_VideoDevice *ANDROID_CreateDevice_1_3(int devindex);

@@ -47,6 +47,9 @@
 // The device screen dimensions to draw on
 int SDL_ANDROID_sWindowWidth  = 320;
 int SDL_ANDROID_sWindowHeight = 240;
+
+int SDL_ANDROID_invert_rgb = 0;
+
 //int SDL_ANDROID_sWindowWidth  = 640;
 //int SDL_ANDROID_sWindowHeight = 480;
 
@@ -111,3 +114,9 @@ JAVA_EXPORT_NAME(DemoRenderer_nativeInitJavaCallbacks) ( JNIEnv*  env, jobject t
 	ANDROID_InitOSKeymap();
 	
 }
+
+JNIEXPORT void JNICALL
+JAVA_EXPORT_NAME(DemoRenderer_nativeSetInvertRGB) ( JNIEnv*  env, jobject thiz, jboolean invert )
+{
+	SDL_ANDROID_invert_rgb = invert;
+};

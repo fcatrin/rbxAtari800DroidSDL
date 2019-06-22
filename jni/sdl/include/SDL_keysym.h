@@ -298,6 +298,18 @@ typedef enum {
 
 	/* Add any other keys here */
 
+	SDLK_JOY_0_UP      = 323,
+	SDLK_JOY_0_DOWN    = 324,
+	SDLK_JOY_0_LEFT    = 325,
+	SDLK_JOY_0_RIGHT   = 326,
+	SDLK_JOY_0_TRIGGER = 327,
+
+	SDLK_JOY_1_UP      = 328,
+	SDLK_JOY_1_DOWN    = 329,
+	SDLK_JOY_1_LEFT    = 330,
+	SDLK_JOY_1_RIGHT   = 331,
+	SDLK_JOY_1_TRIGGER = 332,
+
 	SDLK_LAST
 } SDLKey;
 

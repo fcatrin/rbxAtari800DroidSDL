@@ -302,5 +302,17 @@ public class SDLKeysym {
     public static final int SDLK_PERCENT = 37;
     public static final int SDLK_PIPE = 124;
 
-    public static final int SDLK_LAST = 323;
+    public static final int SDLK_JOY_0_UP      = 323;
+    public static final int SDLK_JOY_0_DOWN    = 324;
+    public static final int SDLK_JOY_0_LEFT    = 325;
+    public static final int SDLK_JOY_0_RIGHT   = 326;
+    public static final int SDLK_JOY_0_TRIGGER = 327;
+
+    public static final int SDLK_JOY_1_UP      = 328;
+    public static final int SDLK_JOY_1_DOWN    = 329;
+    public static final int SDLK_JOY_1_LEFT    = 330;
+    public static final int SDLK_JOY_1_RIGHT   = 331;
+    public static final int SDLK_JOY_1_TRIGGER = 332;
+    
+    public static final int SDLK_LAST = 333;
 }
